@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Finder thumbnails and metadata
+._*
+.Spotlight-V100
+.Trashes
+
+# Local editor files
+*.swp
+*.swo
