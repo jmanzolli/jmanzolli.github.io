@@ -508,13 +508,15 @@ h3 {
 
 .contact-grid {
   align-items: start;
-  margin-top: 30px;
+  grid-template-columns: 1fr;
+  margin-top: 34px;
 }
 
 .contact-actions {
   display: grid;
   justify-items: start;
   gap: 16px;
+  align-self: start;
 }
 
 .contact-actions .button {
