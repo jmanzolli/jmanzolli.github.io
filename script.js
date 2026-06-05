@@ -1,7 +1,26 @@
 const navLinks = Array.from(document.querySelectorAll(".site-nav a"));
+const siteHeader = document.querySelector(".site-header");
+const menuToggle = document.querySelector(".menu-toggle");
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
+
+const closeMenu = () => {
+  if (!siteHeader || !menuToggle) return;
+  siteHeader.classList.remove("nav-open");
+  menuToggle.setAttribute("aria-expanded", "false");
+};
+
+if (siteHeader && menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = siteHeader.classList.toggle("nav-open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+}
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", closeMenu);
+});
 
 const observer = new IntersectionObserver(
   (entries) => {

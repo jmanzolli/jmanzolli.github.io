@@ -21,7 +21,16 @@
           <small>Postdoctoral Researcher · McGill University</small>
         </span>
       </a>
-      <nav class="site-nav" aria-label="Primary navigation">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <span>Menu</span>
+        <span class="menu-toggle-lines" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation">
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
@@ -75,6 +84,10 @@
           </div>
         </aside>
         <div class="hero-copy">
+          <div class="mobile-hero-portrait" aria-hidden="true">
+            <img src="assets/jonatas-speaking.jpg" alt="" />
+            <span>EVs, V2G, aggregators, and smart grids</span>
+          </div>
           <p class="eyebrow">Electrical engineering · EVs for the energy transition</p>
           <h1>Jônatas Augusto Manzolli</h1>
           <p class="hero-text">
