@@ -22,6 +22,10 @@ navLinks.forEach((link) => {
   link.addEventListener("click", closeMenu);
 });
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeMenu();
+});
+
 const observer = new IntersectionObserver(
   (entries) => {
     const visible = entries

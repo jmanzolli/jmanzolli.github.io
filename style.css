@@ -402,7 +402,19 @@ h3 {
 }
 
 .section-heading {
+  position: relative;
   max-width: 780px;
+}
+
+.section-heading::after,
+.split-heading::after {
+  display: block;
+  grid-column: 1 / -1;
+  width: 64px;
+  height: 2px;
+  margin-top: 20px;
+  background: linear-gradient(90deg, var(--deep), transparent);
+  content: "";
 }
 
 .profile-section,
@@ -485,9 +497,23 @@ h3 {
 .project-grid article,
 .media-grid article,
 .recognition-grid article {
+  position: relative;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--white);
+}
+
+.focus-grid article::before,
+.publication-card::before,
+.project-grid article::before,
+.media-grid article::before,
+.recognition-grid article::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(20, 20, 20, 0.72), rgba(20, 20, 20, 0));
+  content: "";
 }
 
 .focus-grid article,
@@ -888,43 +914,53 @@ address {
     position: sticky;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: 12px;
-    min-height: 70px;
-    padding: 12px 18px;
+    gap: 10px;
+    min-height: 58px;
+    padding: 8px 14px;
   }
 
   .brand {
     min-width: 0;
-    gap: 10px;
+    gap: 9px;
   }
 
   .brand-mark {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
+    font-size: 0.72rem;
   }
 
   .brand strong {
-    font-size: 0.98rem;
+    font-size: 0.94rem;
     line-height: 1.15;
   }
 
   .brand small {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     line-height: 1.25;
   }
 
   .menu-toggle {
     display: inline-flex;
     justify-self: end;
+    min-height: 38px;
+    padding: 7px 11px;
+    font-size: 0.8rem;
   }
 
   .site-nav {
     display: none;
-    grid-column: 1 / -1;
+    position: absolute;
+    top: calc(100% - 1px);
+    right: 12px;
+    left: 12px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: 100%;
     gap: 8px;
-    padding-top: 8px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    background: rgba(247, 247, 245, 0.98);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.16);
   }
 
   .site-header.nav-open .site-nav {
@@ -934,8 +970,8 @@ address {
   .site-nav a {
     display: flex;
     align-items: center;
-    min-height: 42px;
-    padding: 9px 11px;
+    min-height: 38px;
+    padding: 8px 10px;
     border: 1px solid var(--line);
     border-radius: 6px;
     background: rgba(255, 255, 255, 0.72);
@@ -945,27 +981,27 @@ address {
 
   .hero {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 14px;
     min-height: auto;
-    padding: 30px 18px 36px;
+    padding: 18px 14px 28px;
   }
 
   .hero::before {
-    height: 42%;
-    opacity: 0.22;
-    background-size: 16px 16px;
+    height: 38%;
+    opacity: 0.18;
+    background-size: 15px 15px;
   }
 
   .hero::after {
-    inset: 8% -22% auto 24%;
-    height: 34%;
-    opacity: 0.13;
+    inset: 9% -24% auto 28%;
+    height: 30%;
+    opacity: 0.1;
   }
 
   .hero-copy::before {
-    inset: -14px -12px -18px;
+    inset: -12px -10px -14px;
     border-radius: 8px;
-    background: rgba(247, 247, 245, 0.72);
+    background: rgba(247, 247, 245, 0.78);
   }
 
   .hero .profile-panel {
@@ -974,28 +1010,28 @@ address {
 
   .mobile-hero-portrait {
     display: grid;
-    grid-template-columns: 82px minmax(0, 1fr);
-    gap: 14px;
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 11px;
     align-items: center;
-    margin-bottom: 18px;
+    margin-bottom: 12px;
   }
 
   .mobile-hero-portrait img {
-    width: 82px;
-    height: 82px;
+    width: 62px;
+    height: 62px;
     object-fit: cover;
     object-position: center center;
     border: 1px solid rgba(0, 0, 0, 0.14);
     border-radius: 8px;
     background: var(--sky);
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
     filter: saturate(0.94) contrast(1.02);
     transform: scaleX(-1);
   }
 
   .mobile-hero-portrait span {
     color: var(--accent);
-    font-size: 0.78rem;
+    font-size: 0.7rem;
     font-weight: 850;
     letter-spacing: 0.06em;
     line-height: 1.35;
@@ -1003,52 +1039,93 @@ address {
   }
 
   .eyebrow {
-    margin-bottom: 10px;
-    font-size: 0.7rem;
+    margin-bottom: 8px;
+    font-size: 0.66rem;
   }
 
   h1 {
-    max-width: 11ch;
-    margin-bottom: 16px;
-    font-size: clamp(2.45rem, 12vw, 3.35rem);
-    line-height: 0.98;
+    max-width: 12ch;
+    margin-bottom: 12px;
+    font-size: clamp(2.08rem, 10vw, 2.9rem);
+    line-height: 1;
     white-space: normal;
   }
 
   h2 {
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    font-size: clamp(1.62rem, 7vw, 2.2rem);
   }
 
   .hero-text {
     max-width: 34rem;
-    font-size: 1.02rem;
-    line-height: 1.55;
+    margin-bottom: 16px;
+    font-size: 0.96rem;
+    line-height: 1.48;
   }
 
   .hero-actions {
-    gap: 10px;
+    gap: 8px;
   }
 
   .hero-actions .button {
     flex: 1 1 160px;
+    min-height: 42px;
+    padding: 10px 12px;
+    font-size: 0.92rem;
   }
 
   .metrics {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-top: 24px;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 18px;
+    overflow: visible;
+    border: 0;
+    background: transparent;
   }
 
   .metrics div {
+    display: grid;
+    grid-template-columns: 94px minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
     min-height: 0;
-    padding: 14px;
+    padding: 10px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.72);
   }
 
   .metrics div:last-child {
-    grid-column: 1 / -1;
+    grid-column: auto;
+  }
+
+  .metrics dt {
+    margin: 0;
+    font-size: 0.62rem;
+  }
+
+  .metrics dd {
+    font-size: 0.92rem;
+    line-height: 1.32;
   }
 
   .section {
-    padding: 54px 18px;
+    padding: 42px 14px;
+  }
+
+  .section-heading::after,
+  .split-heading::after {
+    width: 48px;
+    margin-top: 14px;
+  }
+
+  .split-heading {
+    gap: 18px;
+  }
+
+  .profile-copy,
+  .split-heading > p {
+    font-size: 0.98rem;
+    line-height: 1.55;
   }
 
   .focus-grid,
@@ -1073,7 +1150,7 @@ address {
   .media-grid article,
   .recognition-grid article,
   .publication-card {
-    padding: 18px;
+    padding: 15px;
   }
 
   .publication-card,
@@ -1081,10 +1158,19 @@ address {
     min-height: 0;
   }
 
+  .publication-card h3 {
+    font-size: 1.04rem;
+  }
+
   .topic-icon {
-    width: 42px;
-    height: 42px;
-    margin-bottom: 16px;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 12px;
+  }
+
+  .topic-icon svg {
+    width: 21px;
+    height: 21px;
   }
 
   .nextdriv-brand {
@@ -1093,13 +1179,13 @@ address {
   }
 
   .nextdriv-brand img {
-    width: 76px;
-    height: 76px;
-    padding: 9px;
+    width: 64px;
+    height: 64px;
+    padding: 8px;
   }
 
   .contact-section {
-    padding-top: 54px;
+    padding-top: 42px;
   }
 
   .contact-panel {
@@ -1109,7 +1195,7 @@ address {
 
   .contact-actions {
     max-width: none;
-    padding: 18px;
+    padding: 14px;
   }
 
   .contact-section .social-links {
@@ -1121,6 +1207,14 @@ address {
   .social-links .social-icon {
     justify-content: center;
     width: 100%;
+    min-height: 40px;
+    padding: 8px 10px;
+  }
+
+  .site-footer {
+    gap: 8px;
+    padding-block: 14px;
+    font-size: 0.9rem;
   }
 }
 
@@ -1148,16 +1242,16 @@ address {
   }
 
   .mobile-hero-portrait {
-    grid-template-columns: 70px minmax(0, 1fr);
+    grid-template-columns: 54px minmax(0, 1fr);
   }
 
   .mobile-hero-portrait img {
-    width: 70px;
-    height: 70px;
+    width: 54px;
+    height: 54px;
   }
 
   h1 {
-    font-size: clamp(2.18rem, 12vw, 2.8rem);
+    font-size: clamp(1.9rem, 10vw, 2.45rem);
   }
 
   .hero-actions .button {
@@ -1168,8 +1262,8 @@ address {
     grid-template-columns: 1fr;
   }
 
-  .metrics div:last-child {
-    grid-column: auto;
+  .metrics div {
+    grid-template-columns: 82px minmax(0, 1fr);
   }
 
   .contact-section .social-links {
