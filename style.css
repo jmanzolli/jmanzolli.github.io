@@ -702,7 +702,10 @@ h3 {
   padding-bottom: clamp(34px, 6vw, 58px);
 }
 
-.contact-section .eyebrow,
+.contact-section .eyebrow {
+  color: #2dd4bf;
+}
+
 .contact-section a {
   color: var(--white);
 }
@@ -1067,10 +1070,11 @@ address {
   }
 
   .mobile-hero-portrait span {
-    color: var(--accent);
+    color: var(--gold);
+    font-family: var(--mono);
     font-size: 0.7rem;
-    font-weight: 850;
-    letter-spacing: 0.06em;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     line-height: 1.35;
     text-transform: uppercase;
   }
@@ -1517,20 +1521,28 @@ address {
 @media (max-width: 640px) {
   .news-item summary {
     grid-template-columns: minmax(0, 1fr) 18px;
-    gap: 6px 14px;
+    gap: 6px 12px;
     padding: 16px 2px;
   }
 
   .news-date {
     grid-column: 1 / -1;
+    grid-row: 1;
   }
 
-  .news-chevron {
+  .news-headline {
+    grid-column: 1;
     grid-row: 2;
   }
 
+  .news-chevron {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+  }
+
   .news-body {
-    padding: 0 2px 18px;
+    padding: 4px 2px 18px;
   }
 }
 
