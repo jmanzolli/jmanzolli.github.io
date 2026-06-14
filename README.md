@@ -4,10 +4,12 @@ Static personal academic portfolio prepared for GitHub Pages.
 
 ## Files
 
-- `index.html` - main one-page website
-- `style.css` - responsive visual design
-- `script.js` - active navigation highlighting
-- `assets/Jonatas-Manzolli-CV.pdf` - downloadable CV
+- `index.html` - main one-page website (SEO meta, Open Graph/Twitter cards, JSON-LD `Person` schema)
+- `style.css` - responsive visual design with light/dark themes
+- `script.js` - active navigation highlighting, theme toggle, and scroll-reveal
+- `favicon.svg` - site icon
+- `robots.txt` / `sitemap.xml` - search-engine discovery
+- `assets/` - WebP imagery, Open Graph share image, and the downloadable CV PDF
 
 ## Publish with GitHub Pages
 
