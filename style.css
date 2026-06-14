@@ -7,16 +7,21 @@
   --white: #ffffff;
   --surface: #ffffff;
   --surface-2: #f7f7f5;
-  --card-accent: rgba(20, 20, 20, 0.72);
+  --card-accent: var(--volt);
   --deep: #202020;
   --deep-2: #0f0f0f;
   --accent: #4b4b4b;
   --accent-2: #cfcfcf;
-  --gold: #7a6a55;
+  --gold: #097266;
   --sky: #e6e6e6;
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
   --text-soft: #333333;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Electric accent (futuristic) */
+  --volt: #11b9a6;
+  --volt-soft: rgba(17, 185, 166, 0.16);
+  --volt-line: rgba(17, 185, 166, 0.28);
 }
 
 * {
@@ -56,6 +61,7 @@ a {
   border-bottom: 1px solid rgba(222, 222, 222, 0.95);
   background: rgba(247, 247, 245, 0.94);
   backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 var(--volt-line);
 }
 
 .brand {
@@ -78,6 +84,7 @@ a {
   font-size: 0.8rem;
   font-weight: 850;
   letter-spacing: 0;
+  box-shadow: 0 0 0 1px var(--volt-line), 0 0 18px var(--volt-soft);
 }
 
 .brand strong,
@@ -179,6 +186,7 @@ a {
   background:
     radial-gradient(circle at 10% 8%, rgba(255, 255, 255, 0.82), transparent 18%),
     radial-gradient(circle at 84% 24%, rgba(20, 20, 20, 0.12), transparent 30%),
+    radial-gradient(circle at 72% 82%, var(--volt-soft), transparent 34%),
     linear-gradient(135deg, #f7f7f5 0%, #eeeeec 45%, #d8d8d5 100%);
 }
 
@@ -232,7 +240,7 @@ a {
 
 .eyebrow {
   margin: 0 0 14px;
-  color: var(--accent);
+  color: var(--gold);
   font-size: 0.76rem;
   font-weight: 850;
   letter-spacing: 0.08em;
@@ -300,6 +308,12 @@ h3 {
   border-radius: 6px;
   font-weight: 780;
   text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
 }
 
 .button.primary {
@@ -307,15 +321,28 @@ h3 {
   color: var(--white);
 }
 
+.button.primary:hover {
+  box-shadow: 0 0 0 1px var(--volt), 0 10px 30px var(--volt-soft);
+}
+
 .button.secondary {
   background: rgba(255, 255, 255, 0.8);
   color: var(--deep);
+}
+
+.button.secondary:hover {
+  border-color: var(--volt);
+  box-shadow: 0 0 18px var(--volt-soft);
 }
 
 .button.light {
   border-color: rgba(255, 255, 255, 0.46);
   background: var(--white);
   color: var(--deep);
+}
+
+.button.light:hover {
+  box-shadow: 0 0 0 1px var(--volt), 0 0 22px var(--volt-soft);
 }
 
 .metrics {
@@ -338,7 +365,7 @@ h3 {
 
 .metrics dt {
   margin-bottom: 8px;
-  color: var(--accent);
+  color: var(--gold);
   font-size: 0.72rem;
   font-weight: 850;
   letter-spacing: 0.08em;
@@ -409,17 +436,6 @@ h3 {
 .section-heading {
   position: relative;
   max-width: 780px;
-}
-
-.section-heading::after,
-.split-heading::after {
-  display: block;
-  grid-column: 1 / -1;
-  width: 64px;
-  height: 2px;
-  margin-top: 20px;
-  background: linear-gradient(90deg, var(--deep), transparent);
-  content: "";
 }
 
 .profile-section,
@@ -614,6 +630,10 @@ h3 {
 .publication-card.featured p,
 .publication-card.featured a {
   color: #e5e5e5;
+}
+
+.publication-card.featured .pub-year {
+  color: #2dd4bf;
 }
 
 .publication-card h3 {
@@ -1129,12 +1149,6 @@ address {
     padding: 42px 14px;
   }
 
-  .section-heading::after,
-  .split-heading::after {
-    width: 48px;
-    margin-top: 14px;
-  }
-
   .split-heading {
     gap: 18px;
   }
@@ -1345,8 +1359,8 @@ address {
 .recognition-grid article:hover,
 .publication-card:not(.featured):hover {
   transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  border-color: var(--volt);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px var(--volt-soft);
 }
 
 .focus-grid article::before,
@@ -1372,9 +1386,10 @@ address {
 }
 
 .focus-grid article:hover .topic-icon {
-  background: var(--deep);
-  color: var(--white);
-  border-color: var(--deep);
+  background: var(--volt);
+  color: #04201c;
+  border-color: var(--volt);
+  box-shadow: 0 0 18px var(--volt-soft);
 }
 
 /* News section — expandable items */
@@ -1414,11 +1429,11 @@ address {
 .news-item summary:hover,
 .news-item details[open] summary {
   padding-left: 14px;
-  background: linear-gradient(90deg, rgba(122, 106, 85, 0.08), transparent 60%);
+  background: linear-gradient(90deg, var(--volt-soft), transparent 60%);
 }
 
 .news-item summary:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--volt);
   outline-offset: -2px;
   border-radius: 6px;
 }
@@ -1479,8 +1494,13 @@ address {
   gap: 6px;
   color: var(--ink);
   font-weight: 700;
-  text-decoration-color: rgba(122, 106, 85, 0.5);
+  text-decoration-color: var(--volt);
   text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.news-body a:hover {
+  color: var(--gold);
 }
 
 @keyframes news-reveal {
@@ -1512,6 +1532,27 @@ address {
   .news-body {
     padding: 0 2px 18px;
   }
+}
+
+/* Electric focus rings + social hover */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--volt);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.social-icon {
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.social-icon:hover {
+  border-color: var(--volt);
+  color: var(--gold);
+  box-shadow: 0 0 14px var(--volt-soft);
+  transform: translateY(-1px);
 }
 
 /* Blinking terminal cursor on the News heading */
@@ -1557,13 +1598,17 @@ address {
   --soft: #161618;
   --surface: #1a1a1c;
   --surface-2: #0f0f10;
-  --card-accent: rgba(255, 255, 255, 0.5);
+  --card-accent: var(--volt);
   --accent: #b6b6b6;
   --accent-2: #707070;
-  --gold: #c2a77f;
+  --gold: #2dd4bf;
   --sky: #2a2a2d;
   --text-soft: #cfcfcf;
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+
+  --volt: #2dd4bf;
+  --volt-soft: rgba(45, 212, 191, 0.16);
+  --volt-line: rgba(45, 212, 191, 0.32);
 }
 
 /* Foreground colors originally tuned for a light background */
@@ -1611,6 +1656,7 @@ address {
   background:
     radial-gradient(circle at 10% 8%, rgba(255, 255, 255, 0.06), transparent 18%),
     radial-gradient(circle at 84% 24%, rgba(255, 255, 255, 0.05), transparent 30%),
+    radial-gradient(circle at 72% 82%, rgba(45, 212, 191, 0.12), transparent 36%),
     linear-gradient(135deg, #0f0f10 0%, #141416 45%, #1d1d20 100%);
 }
 
@@ -1638,11 +1684,6 @@ address {
 [data-theme="dark"] .metrics div,
 [data-theme="dark"] .profile-panel {
   background: var(--surface);
-}
-
-[data-theme="dark"] .section-heading::after,
-[data-theme="dark"] .split-heading::after {
-  background: linear-gradient(90deg, var(--ink), transparent);
 }
 
 [data-theme="dark"] .awards-section {
