@@ -39,6 +39,24 @@ if (themeToggle) {
   });
 }
 
+// Mobile "show more" toggles (progressive disclosure)
+document.querySelectorAll(".m-disclose-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const section = btn.closest("section");
+    if (!section) return;
+    const expanded = section.classList.toggle("m-expanded");
+    btn.setAttribute("aria-expanded", String(expanded));
+    btn.textContent = expanded ? btn.dataset.less : btn.dataset.more;
+    // Newly shown items may carry the scroll-reveal class; make sure they're visible
+    if (expanded) {
+      section.querySelectorAll(".m-extra").forEach((el) => {
+        el.classList.add("in-view");
+        el.querySelectorAll(".reveal").forEach((c) => c.classList.add("in-view"));
+      });
+    }
+  });
+});
+
 // Scroll-reveal: fade sections and cards in as they enter the viewport
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 if (!prefersReducedMotion && "IntersectionObserver" in window) {

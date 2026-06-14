@@ -1150,7 +1150,7 @@ address {
   }
 
   .section {
-    padding: 42px 14px;
+    padding: 32px 14px;
   }
 
   .split-heading {
@@ -1543,6 +1543,67 @@ address {
 
   .news-body {
     padding: 4px 2px 18px;
+  }
+}
+
+/* Mobile progressive disclosure (phones only; desktop shows everything) */
+.m-disclose {
+  display: none;
+}
+
+.m-disclose-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 780;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.m-disclose-btn:hover {
+  border-color: var(--volt);
+  box-shadow: 0 0 16px var(--volt-soft);
+}
+
+.m-disclose-btn::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--volt);
+  border-bottom: 2px solid var(--volt);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.m-expanded .m-disclose-btn::after {
+  transform: rotate(225deg);
+}
+
+@media (max-width: 760px) {
+  .m-disclose {
+    display: flex;
+    margin-top: 16px;
+  }
+
+  .m-extra {
+    display: none;
+  }
+
+  .m-expanded .m-extra {
+    display: block;
+  }
+
+  .m-expanded .publication-column.m-extra {
+    display: grid;
   }
 }
 
