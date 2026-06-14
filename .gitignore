@@ -12,3 +12,6 @@ Icon
 # Local editor files
 *.swp
 *.swo
+
+# Local preview helpers (not part of the deployed site)
+.claude/
