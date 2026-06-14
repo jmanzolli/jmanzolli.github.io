@@ -1241,8 +1241,7 @@ address {
 .pub-year,
 .metrics dt,
 .contact-label,
-.timeline time,
-.news-date {
+.timeline time {
   font-family: var(--mono);
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -1362,60 +1361,6 @@ address {
   border-color: var(--deep);
 }
 
-/* News section */
-.news-list {
-  display: grid;
-  gap: 0;
-  margin: 30px 0 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--line);
-}
-
-.news-item {
-  display: grid;
-  grid-template-columns: 96px minmax(0, 1fr);
-  gap: 26px;
-  align-items: baseline;
-  padding: 18px 4px;
-  border-bottom: 1px solid var(--line);
-  transition: padding-left 0.25s ease, background 0.25s ease;
-}
-
-.news-item:hover {
-  padding-left: 14px;
-  background: linear-gradient(90deg, rgba(122, 106, 85, 0.07), transparent 60%);
-}
-
-.news-date {
-  color: var(--gold);
-  font-size: 0.82rem;
-  white-space: nowrap;
-}
-
-.news-item p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.news-item em {
-  font-style: normal;
-  font-weight: 700;
-  color: var(--ink);
-}
-
-/* Blinking terminal cursor */
-.blink {
-  color: var(--gold);
-  font-family: var(--mono);
-  font-weight: 500;
-  animation: blink 1.1s steps(1) infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
 /* Scroll reveal */
 .reveal {
   opacity: 0;
@@ -1430,7 +1375,7 @@ address {
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .blink, .brand-mark::after { animation: none; }
+  .brand-mark::after { animation: none; }
   html { scroll-behavior: auto; }
 }
 

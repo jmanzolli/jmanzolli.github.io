@@ -45,7 +45,7 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
   const revealTargets = document.querySelectorAll(
     ".section-heading, .split-heading, .focus-grid article, .publication-card, " +
       ".project-grid article, .media-grid article, .recognition-grid article, " +
-      ".timeline article, .news-item, .metrics, .contact-panel"
+      ".timeline article, .metrics, .contact-panel"
   );
 
   const revealObserver = new IntersectionObserver(
