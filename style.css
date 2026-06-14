@@ -1048,48 +1048,60 @@ address {
     display: none;
   }
 
-  .mobile-hero-portrait {
+  /* Mobile hero: subtext on top, then picture (left) + name (right) on one row */
+  .hero-copy {
     display: grid;
-    grid-template-columns: 62px minmax(0, 1fr);
-    gap: 11px;
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
-    margin-bottom: 12px;
+    column-gap: 16px;
+  }
+
+  .eyebrow {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin-bottom: 16px;
+    font-size: 0.66rem;
+  }
+
+  .mobile-hero-portrait {
+    display: block;
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
   }
 
   .mobile-hero-portrait img {
-    width: 62px;
-    height: 62px;
+    width: 96px;
+    height: 96px;
     object-fit: cover;
     object-position: center center;
     border: 1px solid rgba(0, 0, 0, 0.14);
-    border-radius: 8px;
+    border-radius: 10px;
     background: var(--sky);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
     filter: saturate(0.94) contrast(1.02);
     transform: scaleX(-1);
   }
 
-  .mobile-hero-portrait span {
-    color: var(--gold);
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    line-height: 1.35;
-    text-transform: uppercase;
-  }
-
-  .eyebrow {
-    margin-bottom: 8px;
-    font-size: 0.66rem;
-  }
-
   h1 {
-    max-width: 12ch;
-    margin-bottom: 12px;
-    font-size: clamp(2.08rem, 10vw, 2.9rem);
-    line-height: 1;
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    max-width: none;
+    margin-bottom: 0;
+    font-size: clamp(1.5rem, 8vw, 2.05rem);
+    line-height: 1.05;
     white-space: normal;
+  }
+
+  .hero-text,
+  .hero-actions,
+  .metrics {
+    grid-column: 1 / -1;
+  }
+
+  .hero-text {
+    margin-top: 20px;
   }
 
   h2 {
@@ -1789,17 +1801,17 @@ summary:focus-visible {
     padding-inline: 14px;
   }
 
-  .mobile-hero-portrait {
-    grid-template-columns: 54px minmax(0, 1fr);
+  .hero-copy {
+    column-gap: 13px;
   }
 
   .mobile-hero-portrait img {
-    width: 54px;
-    height: 54px;
+    width: 80px;
+    height: 80px;
   }
 
   h1 {
-    font-size: clamp(1.9rem, 10vw, 2.45rem);
+    font-size: clamp(1.35rem, 7.5vw, 1.7rem);
   }
 
   .hero-actions .button {
