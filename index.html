@@ -109,15 +109,14 @@
         </span>
       </a>
       <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation">
-        <a href="#news">News</a>
+        <a href="#work">Work</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-        <a href="#media">Media</a>
-        <a href="#career">Career</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="header-controls">
+        <a class="header-cv" href="assets/Jonatas-Manzolli-CV.pdf">CV</a>
         <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
           <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="4" />
@@ -149,13 +148,7 @@
             height="510"
             fetchpriority="high"
           />
-          <div>
-            <p class="panel-label">Electrical engineer and energy-systems researcher</p>
-            <h2>EVs, V2G, aggregators, and smart grids for the energy transition.</h2>
-            <p>
-              Based in Montreal, affiliated with McGill University’s IMaTS Lab and INESC Coimbra.
-            </p>
-            <div class="profile-socials" aria-label="Profile links">
+          <div class="profile-socials" aria-label="Profile links">
               <a class="social-icon" href="https://www.linkedin.com/in/jmanzolli/" aria-label="LinkedIn" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M6.5 9.5V19" />
@@ -183,7 +176,6 @@
                 </svg>
               </a>
             </div>
-          </div>
         </aside>
         <div class="hero-copy">
           <div class="mobile-hero-portrait" aria-hidden="true">
@@ -191,15 +183,18 @@
           </div>
           <p class="eyebrow">Electrical engineering · EVs for the energy transition</p>
           <h1>Jônatas Augusto Manzolli</h1>
+          <p class="hero-statement">
+            I design intelligent systems for electric mobility and flexible power grids.
+          </p>
           <p class="hero-text">
-            I study how electric vehicles can become active energy assets, using optimization,
-            artificial intelligence, and simulation to support V2G, smart charging, aggregators, and
-            smarter grids.
+            My research combines optimization, artificial intelligence, and simulation to help fleets,
+            utilities, and cities plan and operate electric vehicles, smart charging, and V2G systems.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#publications">Read selected work</a>
+            <a class="button primary" href="#work">Explore selected research</a>
             <a class="button secondary" href="assets/Jonatas-Manzolli-CV.pdf">Download CV</a>
           </div>
+          <a class="hero-collab" href="#contact">Discuss a collaboration →</a>
           <dl class="metrics">
             <div>
               <dt>Publications</dt>
@@ -218,7 +213,90 @@
         </div>
       </section>
 
-      <section class="section profile-section" aria-labelledby="profile-title">
+      <section class="section work-section" id="work" aria-labelledby="work-title">
+        <div class="split-heading">
+          <div>
+            <p class="eyebrow">Selected impact</p>
+            <h2 id="work-title">Three research contributions.</h2>
+          </div>
+          <p>
+            Systems that connect electric mobility, intelligent decision-making, and the power grid —
+            each grounded in a real operational result.
+          </p>
+        </div>
+        <div class="case-list">
+          <article class="case-card">
+            <div class="case-media" aria-hidden="true">
+              <span class="case-media-note">Figure coming soon</span>
+            </div>
+            <div class="case-body">
+              <p class="project-type">Electric bus operations · cold climates</p>
+              <h3>Planning resilient electric bus fleets in cold regions</h3>
+              <p class="case-line"><strong>Problem.</strong> Cold weather and grid limits threaten the
+                reliability and cost of electric bus service.</p>
+              <p class="case-line"><strong>Contribution.</strong> An agent-based simulation coupled with
+                optimization to plan fleets and charging under climate and operational variability.</p>
+              <p class="case-result">
+                <span class="case-stat">+30%</span>
+                winter energy demand identified in the case study — so operators size fleets and
+                charging to stay reliable in the cold.
+              </p>
+              <p class="case-line case-role"><strong>Role.</strong> Lead author — modelling and analysis.</p>
+              <div class="case-links">
+                <a href="https://doi.org/10.1016/j.apenergy.2026.127735" target="_blank" rel="noopener">Paper · Applied Energy</a>
+                <a href="https://github.com/jmanzolli/SMaRTE-electric-bus-smart-charging-platform" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+          </article>
+          <article class="case-card">
+            <div class="case-media" aria-hidden="true">
+              <span class="case-media-note">Figure coming soon</span>
+            </div>
+            <div class="case-body">
+              <p class="project-type">V2G · battery-aware fleet charging</p>
+              <h3>Robust charging that accounts for battery ageing and uncertainty</h3>
+              <p class="case-line"><strong>Problem.</strong> Fleet charging must cut cost and peak load
+                while handling tariffs, degradation, and uncertain energy use.</p>
+              <p class="case-line"><strong>Contribution.</strong> A robust optimization model with V2G,
+                time-of-use tariffs, and battery-ageing costs, reformulated to stay tractable.</p>
+              <p class="case-result">
+                <span class="case-stat">up to 37%</span>
+                lower operating cost through coordinated charging (12% under the robust,
+                uncertainty-aware model) versus business-as-usual.
+              </p>
+              <p class="case-line case-role"><strong>Role.</strong> Lead author — model and case study.</p>
+              <div class="case-links">
+                <a href="https://doi.org/10.1016/j.apenergy.2024.125137" target="_blank" rel="noopener">Paper · Applied Energy</a>
+                <a href="https://github.com/jmanzolli/Electric-Bus-Battery-Degradation-and-Optimization" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+          </article>
+          <article class="case-card">
+            <div class="case-media" aria-hidden="true">
+              <span class="case-media-note">Figure coming soon</span>
+            </div>
+            <div class="case-body">
+              <p class="project-type">Autonomous EVs · grid resilience</p>
+              <h3>Shared autonomous EVs as backup power during outages</h3>
+              <p class="case-line"><strong>Problem.</strong> Climate-driven outages disrupt both mobility
+                and power; can one fleet help with both?</p>
+              <p class="case-line"><strong>Contribution.</strong> A GIS-based, multi-objective framework
+                (Montreal testbed) that quantifies the mobility-versus-energy trade-off for SAEV fleets.</p>
+              <p class="case-result">
+                <span class="case-stat">up to 28%</span>
+                of local energy needs supplied in outage-affected zones, revealing where charging
+                infrastructure beats added battery capacity.
+              </p>
+              <p class="case-line case-role"><strong>Role.</strong> Co-author — optimization framework.</p>
+              <div class="case-links">
+                <a href="https://doi.org/10.1038/s44333-026-00081-9" target="_blank" rel="noopener">Paper · npj Sust. Mobility</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section profile-section" id="about" aria-labelledby="profile-title">
         <div class="section-heading">
           <p class="eyebrow">Profile</p>
           <h2 id="profile-title">Research that connects EVs, power systems, and decision-making.</h2>
@@ -235,6 +313,212 @@
             from the University of Campinas, including an exchange program at the Technical University
             of Munich.
           </p>
+        </div>
+      </section>
+
+      <section class="section band" id="research" aria-labelledby="research-title">
+        <div class="split-heading">
+          <div>
+            <p class="eyebrow">Research agenda</p>
+            <h2 id="research-title">Electric vehicles as flexible resources for the energy transition.</h2>
+          </div>
+          <p>
+            I focus on models that are rigorous enough for research and practical enough to support
+            decisions by utilities, aggregators, fleet operators, charging providers, and public
+            institutions.
+          </p>
+        </div>
+        <div class="focus-grid">
+          <article>
+            <span class="topic-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 17h10" />
+                <path d="M8 17l1.2-6.4A3 3 0 0 1 12.1 8h1.8a3 3 0 0 1 2.9 2.6L18 17" />
+                <path d="M9 17v2" />
+                <path d="M17 17v2" />
+                <path d="M10 12h6" />
+                <path d="M6 10h2" />
+                <path d="M16 10h2" />
+              </svg>
+            </span>
+            <h3>Electric mobility and smart charging</h3>
+            <p>
+              EV and electric bus charging strategies, infrastructure planning, fleet electrification,
+              and grid-aware operation.
+            </p>
+          </article>
+          <article>
+            <span class="topic-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M13 2L5 13h7l-1 9 8-12h-7l1-8z" />
+              </svg>
+            </span>
+            <h3>V2G, aggregators, and energy markets</h3>
+            <p>
+              Robust, bi-level, hierarchical, and multi-objective optimization for dynamic tariffs,
+              vehicle-to-grid services, aggregator coordination, and market participation.
+            </p>
+          </article>
+          <article>
+            <span class="topic-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 3v3" />
+                <path d="M12 18v3" />
+                <path d="M3 12h3" />
+                <path d="M18 12h3" />
+                <path d="M7.8 7.8l2.1 2.1" />
+                <path d="M14.1 14.1l2.1 2.1" />
+                <path d="M16.2 7.8l-2.1 2.1" />
+                <path d="M9.9 14.1l-2.1 2.1" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </span>
+            <h3>AI, simulation, and digital energy tools</h3>
+            <p>
+              Agent-based simulation, machine learning for consumption and degradation, digital twins,
+              and hybrid AI-optimization frameworks for power, charging, and electrified mobility systems.
+            </p>
+          </article>
+          <article>
+            <span class="topic-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 18V8" />
+                <path d="M9 18V5" />
+                <path d="M14 18v-7" />
+                <path d="M19 18V3" />
+                <path d="M3 18h18" />
+                <path d="M4 8l5-3 5 6 5-8" />
+              </svg>
+            </span>
+            <h3>Smart grids and policy-oriented decision support</h3>
+            <p>
+              MCDA, SMAA, PROMETHEE, synthetic MCDA, and policy-oriented tools for electrification,
+              grid flexibility, and energy-transition decisions.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="publications" aria-labelledby="publications-title">
+        <div class="split-heading">
+          <div>
+            <p class="eyebrow">Selected publications</p>
+            <h2 id="publications-title">Recent and representative work.</h2>
+          </div>
+        </div>
+        <div class="publication-list">
+          <div class="publication-column">
+            <article class="publication-card featured">
+              <p class="pub-year">2026 · Applied Energy</p>
+              <h3>Planning resilient electric bus operations in cold regions</h3>
+              <p>
+                Agent-based simulation and optimization framework for electric bus operations under
+                climate and operational variability.
+              </p>
+              <a href="https://doi.org/10.1016/j.apenergy.2026.127735" target="_blank" rel="noopener">10.1016/j.apenergy.2026.127735</a>
+            </article>
+            <article class="publication-card">
+              <p class="pub-year">2025 · Applied Energy</p>
+              <h3>Electric bus fleet charging management under battery ageing, tariffs, and uncertainty</h3>
+              <a href="https://doi.org/10.1016/j.apenergy.2024.125137" target="_blank" rel="noopener">10.1016/j.apenergy.2024.125137</a>
+            </article>
+            <article class="publication-card">
+              <p class="pub-year">2024 · Energy</p>
+              <h3>Aggregator-supported strategy for electric bus fleet charging</h3>
+              <a href="https://doi.org/10.1016/j.energy.2024.132497" target="_blank" rel="noopener">10.1016/j.energy.2024.132497</a>
+            </article>
+          </div>
+          <div class="publication-column m-extra">
+            <article class="publication-card">
+              <p class="pub-year">2026 · npj Sustainable Mobility and Transport</p>
+              <h3>Balancing energy resilience and mobility for shared autonomous electric vehicles</h3>
+              <a href="https://doi.org/10.1038/s44333-026-00081-9" target="_blank" rel="noopener">10.1038/s44333-026-00081-9</a>
+            </article>
+            <article class="publication-card">
+              <p class="pub-year">2025 · Sustainable Futures</p>
+              <h3>Decision-making in bus-transit systems using stochastic multi-criteria acceptability analysis</h3>
+              <a href="https://doi.org/10.1016/j.sftr.2025.100653" target="_blank" rel="noopener">10.1016/j.sftr.2025.100653</a>
+            </article>
+            <article class="publication-card">
+              <p class="pub-year">2025 · Transportation Research Interdisciplinary Perspectives</p>
+              <h3>Synthetic multi-criteria decision analysis for participatory transportation planning</h3>
+              <a href="https://doi.org/10.1016/j.trip.2025.101463" target="_blank" rel="noopener">10.1016/j.trip.2025.101463</a>
+            </article>
+            <article class="publication-card">
+              <p class="pub-year">2022 · Energy</p>
+              <h3>Electric bus coordinated charging strategy considering V2G and battery degradation</h3>
+              <a href="https://doi.org/10.1016/j.energy.2022.124252" target="_blank" rel="noopener">10.1016/j.energy.2022.124252</a>
+            </article>
+          </div>
+        </div>
+        <div class="m-disclose">
+          <button class="m-disclose-btn" type="button" aria-expanded="false"
+            data-more="Show 4 more publications" data-less="Show fewer">Show 4 more publications</button>
+        </div>
+        <div class="publication-actions">
+          <a class="button secondary" href="https://scholar.google.com/citations?user=IJKz2_gAAAAJ&hl=pt-PT" target="_blank" rel="noopener">
+            Google Scholar
+          </a>
+        </div>
+      </section>
+
+      <section class="section band" id="projects" aria-labelledby="projects-title">
+        <div class="split-heading">
+          <div>
+            <p class="eyebrow">Projects and tools</p>
+            <h2 id="projects-title">From research models to usable platforms.</h2>
+          </div>
+          <p>
+            Three tracks: reproducible research frameworks, applied software and decision-support
+            tools, and research commercialization through Nextdriv.
+          </p>
+        </div>
+        <div class="project-grid">
+          <article>
+            <p class="project-type">Applied software</p>
+            <h3>SMaRTE electric bus smart charging platform</h3>
+            <p>
+              End-to-end platform for planning and operating electric bus fleets, including smart
+              charging, load management, peak shaving, and grid-aware fleet coordination.
+            </p>
+            <a href="https://github.com/jmanzolli/SMaRTE-electric-bus-smart-charging-platform" target="_blank" rel="noopener">Repository</a>
+          </article>
+          <article>
+            <p class="project-type">Research framework</p>
+            <h3>Electric bus battery degradation and optimization</h3>
+            <p>
+              Lifecycle-aware modeling that integrates degradation-aware optimization, hybrid
+              physics and machine-learning models, and battery cost/lifetime trade-offs.
+            </p>
+            <a href="https://github.com/jmanzolli/Electric-Bus-Battery-Degradation-and-Optimization" target="_blank" rel="noopener">Repository</a>
+          </article>
+          <article>
+            <p class="project-type">Applied software</p>
+            <h3>EV charging grid simulator</h3>
+            <p>
+              Simulation framework for EV-grid interaction at system scale, including charging demand,
+              infrastructure stress, load analysis, and optimization coupling.
+            </p>
+            <a href="https://github.com/jmanzolli/EV-Charging-Grid-Simulator" target="_blank" rel="noopener">Repository</a>
+          </article>
+          <article class="nextdriv-card">
+            <div class="nextdriv-brand">
+              <img src="assets/nextdriv-logo.webp" alt="Nextdriv logo" width="104" height="104" loading="lazy" />
+              <div>
+                <p class="project-type">Research commercialization</p>
+                <h3>Nextdriv</h3>
+              </div>
+            </div>
+            <p>
+              Research commercialization initiative developing digital decision-support tools for
+              electric fleet planning, operations, charging infrastructure, battery degradation, and
+              energy-system and smart-grid analysis.
+            </p>
+            <a href="https://www.nextdriv.ca/" target="_blank" rel="noopener">Visit Nextdriv</a>
+          </article>
+        </div>
+        <div class="project-actions">
+          <a class="button secondary" href="https://github.com/jmanzolli" target="_blank" rel="noopener">GitHub profile</a>
         </div>
       </section>
 
@@ -407,208 +691,6 @@
           <a class="button secondary" href="https://www.linkedin.com/in/jmanzolli/" target="_blank" rel="noopener">
             More updates on LinkedIn
           </a>
-        </div>
-      </section>
-
-      <section class="section band" id="research" aria-labelledby="research-title">
-        <div class="split-heading">
-          <div>
-            <p class="eyebrow">Research agenda</p>
-            <h2 id="research-title">Electric vehicles as flexible resources for the energy transition.</h2>
-          </div>
-          <p>
-            I focus on models that are rigorous enough for research and practical enough to support
-            decisions by utilities, aggregators, fleet operators, charging providers, and public
-            institutions.
-          </p>
-        </div>
-        <div class="focus-grid">
-          <article>
-            <span class="topic-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M7 17h10" />
-                <path d="M8 17l1.2-6.4A3 3 0 0 1 12.1 8h1.8a3 3 0 0 1 2.9 2.6L18 17" />
-                <path d="M9 17v2" />
-                <path d="M17 17v2" />
-                <path d="M10 12h6" />
-                <path d="M6 10h2" />
-                <path d="M16 10h2" />
-              </svg>
-            </span>
-            <h3>Electric mobility and smart charging</h3>
-            <p>
-              EV and electric bus charging strategies, infrastructure planning, fleet electrification,
-              and grid-aware operation.
-            </p>
-          </article>
-          <article>
-            <span class="topic-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M13 2L5 13h7l-1 9 8-12h-7l1-8z" />
-              </svg>
-            </span>
-            <h3>V2G, aggregators, and energy markets</h3>
-            <p>
-              Robust, bi-level, hierarchical, and multi-objective optimization for dynamic tariffs,
-              vehicle-to-grid services, aggregator coordination, and market participation.
-            </p>
-          </article>
-          <article>
-            <span class="topic-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 3v3" />
-                <path d="M12 18v3" />
-                <path d="M3 12h3" />
-                <path d="M18 12h3" />
-                <path d="M7.8 7.8l2.1 2.1" />
-                <path d="M14.1 14.1l2.1 2.1" />
-                <path d="M16.2 7.8l-2.1 2.1" />
-                <path d="M9.9 14.1l-2.1 2.1" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </span>
-            <h3>AI, simulation, and digital energy tools</h3>
-            <p>
-              Agent-based simulation, machine learning for consumption and degradation, digital twins,
-              and hybrid AI-optimization frameworks for power, charging, and electrified mobility systems.
-            </p>
-          </article>
-          <article>
-            <span class="topic-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 18V8" />
-                <path d="M9 18V5" />
-                <path d="M14 18v-7" />
-                <path d="M19 18V3" />
-                <path d="M3 18h18" />
-                <path d="M4 8l5-3 5 6 5-8" />
-              </svg>
-            </span>
-            <h3>Smart grids and policy-oriented decision support</h3>
-            <p>
-              MCDA, SMAA, PROMETHEE, synthetic MCDA, and policy-oriented tools for electrification,
-              grid flexibility, and energy-transition decisions.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="publications" aria-labelledby="publications-title">
-        <div class="split-heading">
-          <div>
-            <p class="eyebrow">Selected publications</p>
-            <h2 id="publications-title">Recent and representative work.</h2>
-          </div>
-        </div>
-        <div class="publication-list">
-          <div class="publication-column">
-            <article class="publication-card featured">
-              <p class="pub-year">2026 · Applied Energy</p>
-              <h3>Planning resilient electric bus operations in cold regions</h3>
-              <p>
-                Agent-based simulation and optimization framework for electric bus operations under
-                climate and operational variability.
-              </p>
-              <a href="https://doi.org/10.1016/j.apenergy.2026.127735" target="_blank" rel="noopener">10.1016/j.apenergy.2026.127735</a>
-            </article>
-            <article class="publication-card">
-              <p class="pub-year">2025 · Applied Energy</p>
-              <h3>Electric bus fleet charging management under battery ageing, tariffs, and uncertainty</h3>
-              <a href="https://doi.org/10.1016/j.apenergy.2024.125137" target="_blank" rel="noopener">10.1016/j.apenergy.2024.125137</a>
-            </article>
-            <article class="publication-card">
-              <p class="pub-year">2024 · Energy</p>
-              <h3>Aggregator-supported strategy for electric bus fleet charging</h3>
-              <a href="https://doi.org/10.1016/j.energy.2024.132497" target="_blank" rel="noopener">10.1016/j.energy.2024.132497</a>
-            </article>
-          </div>
-          <div class="publication-column m-extra">
-            <article class="publication-card">
-              <p class="pub-year">2026 · npj Sustainable Mobility and Transport</p>
-              <h3>Balancing energy resilience and mobility for shared autonomous electric vehicles</h3>
-              <a href="https://doi.org/10.1038/s44333-026-00081-9" target="_blank" rel="noopener">10.1038/s44333-026-00081-9</a>
-            </article>
-            <article class="publication-card">
-              <p class="pub-year">2025 · Sustainable Futures</p>
-              <h3>Decision-making in bus-transit systems using stochastic multi-criteria acceptability analysis</h3>
-              <a href="https://doi.org/10.1016/j.sftr.2025.100653" target="_blank" rel="noopener">10.1016/j.sftr.2025.100653</a>
-            </article>
-            <article class="publication-card">
-              <p class="pub-year">2025 · Transportation Research Interdisciplinary Perspectives</p>
-              <h3>Synthetic multi-criteria decision analysis for participatory transportation planning</h3>
-              <a href="https://doi.org/10.1016/j.trip.2025.101463" target="_blank" rel="noopener">10.1016/j.trip.2025.101463</a>
-            </article>
-            <article class="publication-card">
-              <p class="pub-year">2022 · Energy</p>
-              <h3>Electric bus coordinated charging strategy considering V2G and battery degradation</h3>
-              <a href="https://doi.org/10.1016/j.energy.2022.124252" target="_blank" rel="noopener">10.1016/j.energy.2022.124252</a>
-            </article>
-          </div>
-        </div>
-        <div class="m-disclose">
-          <button class="m-disclose-btn" type="button" aria-expanded="false"
-            data-more="Show 4 more publications" data-less="Show fewer">Show 4 more publications</button>
-        </div>
-        <div class="publication-actions">
-          <a class="button secondary" href="https://scholar.google.com/citations?user=IJKz2_gAAAAJ&hl=pt-PT" target="_blank" rel="noopener">
-            Google Scholar
-          </a>
-        </div>
-      </section>
-
-      <section class="section band" id="projects" aria-labelledby="projects-title">
-        <div class="split-heading">
-          <div>
-            <p class="eyebrow">Projects and tools</p>
-            <h2 id="projects-title">From research models to usable platforms.</h2>
-          </div>
-        </div>
-        <div class="project-grid">
-          <article>
-            <p class="project-type">Software platform</p>
-            <h3>SMaRTE electric bus smart charging platform</h3>
-            <p>
-              End-to-end platform for planning and operating electric bus fleets, including smart
-              charging, load management, peak shaving, and grid-aware fleet coordination.
-            </p>
-            <a href="https://github.com/jmanzolli/SMaRTE-electric-bus-smart-charging-platform" target="_blank" rel="noopener">Repository</a>
-          </article>
-          <article>
-            <p class="project-type">Modeling and optimization</p>
-            <h3>Electric bus battery degradation and optimization</h3>
-            <p>
-              Lifecycle-aware modeling that integrates degradation-aware optimization, hybrid
-              physics and machine-learning models, and battery cost/lifetime trade-offs.
-            </p>
-            <a href="https://github.com/jmanzolli/Electric-Bus-Battery-Degradation-and-Optimization" target="_blank" rel="noopener">Repository</a>
-          </article>
-          <article>
-            <p class="project-type">Simulation framework</p>
-            <h3>EV charging grid simulator</h3>
-            <p>
-              Simulation framework for EV-grid interaction at system scale, including charging demand,
-              infrastructure stress, load analysis, and optimization coupling.
-            </p>
-            <a href="https://github.com/jmanzolli/EV-Charging-Grid-Simulator" target="_blank" rel="noopener">Repository</a>
-          </article>
-          <article class="nextdriv-card">
-            <div class="nextdriv-brand">
-              <img src="assets/nextdriv-logo.webp" alt="Nextdriv logo" width="104" height="104" loading="lazy" />
-              <div>
-                <p class="project-type">Venture</p>
-                <h3>Nextdriv</h3>
-              </div>
-            </div>
-            <p>
-              Research commercialization initiative developing digital decision-support tools for
-              electric fleet planning, operations, charging infrastructure, battery degradation, and
-              energy-system and smart-grid analysis.
-            </p>
-            <a href="https://www.nextdriv.ca/" target="_blank" rel="noopener">Visit Nextdriv</a>
-          </article>
-        </div>
-        <div class="project-actions">
-          <a class="button secondary" href="https://github.com/jmanzolli" target="_blank" rel="noopener">GitHub profile</a>
         </div>
       </section>
 
