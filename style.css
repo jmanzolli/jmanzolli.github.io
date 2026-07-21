@@ -1739,20 +1739,18 @@ summary:focus-visible {
 }
 
 .case-result {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  margin: 14px 0;
+  margin: 16px 0;
   color: var(--muted);
 }
 
 .case-stat {
-  flex: 0 0 auto;
+  display: block;
+  margin-bottom: 4px;
   color: var(--gold);
   font-family: var(--mono);
   font-weight: 700;
   font-size: clamp(1.4rem, 3vw, 2rem);
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .case-role {
