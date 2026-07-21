@@ -1062,68 +1062,78 @@ address {
     display: none;
   }
 
-  /* Mobile hero: subtext on top, then picture (left) + name (right) on one row */
+  /* Mobile hero: centered profile card */
   .hero-copy {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    column-gap: 16px;
-  }
-
-  .eyebrow {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    margin-bottom: 16px;
-    font-size: 0.66rem;
+    text-align: center;
   }
 
   .mobile-hero-portrait {
+    order: 1;
     display: block;
-    grid-column: 1;
-    grid-row: 2;
-    margin: 0;
+    margin: 4px 0 18px;
   }
 
   .mobile-hero-portrait img {
-    width: 96px;
-    height: 96px;
+    width: 128px;
+    height: 128px;
     object-fit: cover;
     object-position: center center;
-    border: 1px solid rgba(0, 0, 0, 0.14);
-    border-radius: 10px;
+    border: 3px solid var(--surface);
+    border-radius: 50%;
     background: var(--sky);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
     filter: saturate(0.94) contrast(1.02);
     transform: scaleX(-1);
   }
 
   h1 {
-    grid-column: 2;
-    grid-row: 2;
-    align-self: center;
+    order: 2;
     max-width: none;
-    margin-bottom: 0;
-    font-size: clamp(1.5rem, 8vw, 2.05rem);
+    margin: 0 0 10px;
+    font-size: clamp(1.7rem, 8.5vw, 2.3rem);
     line-height: 1.05;
     white-space: normal;
   }
 
-  .hero-statement,
-  .hero-collab,
-  .hero-text,
-  .hero-actions,
-  .metrics {
-    grid-column: 1 / -1;
+  .eyebrow {
+    order: 3;
+    margin: 0 0 16px;
+    font-size: 0.66rem;
   }
 
   .hero-statement {
-    margin-top: 20px;
-    margin-bottom: 0;
+    order: 4;
+    margin: 0 0 10px;
     font-size: clamp(1.15rem, 5.5vw, 1.42rem);
   }
 
   .hero-text {
-    margin-top: 10px;
+    order: 5;
+    margin-top: 0;
+  }
+
+  .hero-actions {
+    order: 6;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .hero-collab {
+    order: 7;
+  }
+
+  .metrics {
+    order: 8;
+    width: 100%;
+  }
+
+  .metrics-note {
+    order: 9;
+    width: 100%;
   }
 
   h2 {
@@ -1142,10 +1152,11 @@ address {
   }
 
   .hero-actions .button {
-    flex: 1 1 160px;
-    min-height: 42px;
-    padding: 10px 12px;
-    font-size: 0.92rem;
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
   }
 
   .metrics {
@@ -1921,17 +1932,13 @@ summary:focus-visible {
     padding-inline: 14px;
   }
 
-  .hero-copy {
-    column-gap: 13px;
-  }
-
   .mobile-hero-portrait img {
-    width: 80px;
-    height: 80px;
+    width: 108px;
+    height: 108px;
   }
 
   h1 {
-    font-size: clamp(1.35rem, 7.5vw, 1.7rem);
+    font-size: clamp(1.5rem, 8vw, 1.95rem);
   }
 
   .hero-actions .button {
