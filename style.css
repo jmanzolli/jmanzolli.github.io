@@ -1738,21 +1738,6 @@ summary:focus-visible {
   font-weight: 700;
 }
 
-.case-result {
-  margin: 16px 0;
-  color: var(--muted);
-}
-
-.case-stat {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--gold);
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  line-height: 1.1;
-}
-
 .case-role {
   font-size: 0.92rem;
 }
