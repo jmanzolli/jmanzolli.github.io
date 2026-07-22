@@ -866,23 +866,26 @@ p {
    ------------------------------------------------------------ */
 .platform-feature {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
   gap: clamp(32px, 4vw, 72px);
   align-items: start;
 }
 
-.platform-media {
-  overflow: hidden;
+/* Brand panel stays white in both themes — the mark is drawn for light */
+.platform-mark {
+  display: grid;
+  aspect-ratio: 1 / 1;
+  place-items: center;
+  padding: clamp(28px, 3vw, 44px);
   border: 1px solid var(--line);
   border-radius: 2px;
-  background: var(--surface);
-  line-height: 0;
+  background: #ffffff;
 }
 
-.platform-media video {
-  display: block;
+.platform-mark img {
   width: 100%;
   height: auto;
+  max-width: 200px;
 }
 
 .platform-body h3 {
@@ -1269,6 +1272,10 @@ summary:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  .platform-mark {
+    max-width: 260px;
+  }
+
   .editorial-grid {
     grid-template-columns: 1fr;
   }
@@ -1595,7 +1602,6 @@ summary:focus-visible {
   border-top: 1px solid var(--line);
 }
 
-[data-theme="dark"] img,
-[data-theme="dark"] .platform-media video {
+[data-theme="dark"] img:not(.platform-mark img) {
   filter: brightness(0.94);
 }
