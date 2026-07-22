@@ -165,3 +165,18 @@ sections.forEach((section) => observer.observe(section));
   window.addEventListener("resize", setHeaderVar);
   activate(location.hash ? tabFromHash() : "about", false);
 })();
+
+// Publications: "See all publications" toggle
+(function () {
+  var btn = document.querySelector(".pub-disclose-btn");
+  if (!btn) return;
+  var section = btn.closest("section");
+  btn.addEventListener("click", function () {
+    var expanded = section.classList.toggle("pubs-expanded");
+    btn.setAttribute("aria-expanded", String(expanded));
+    btn.textContent = expanded ? btn.dataset.less : btn.dataset.more;
+    if (expanded) {
+      section.querySelectorAll(".reveal").forEach(function (c) { c.classList.add("in-view"); });
+    }
+  });
+})();

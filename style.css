@@ -2056,3 +2056,100 @@ summary:focus-visible {
   border-color: var(--ink);
   color: #101010;
 }
+
+/* ============================================================
+   Publications list (full record + see-more)
+   ============================================================ */
+.publication-card {
+  min-height: 0;
+  padding: 20px;
+}
+
+.publication-card.featured {
+  grid-column: 1 / -1;
+  min-height: 0;
+  padding: 24px;
+}
+
+.publication-card h3 {
+  font-size: 1.06rem;
+  line-height: 1.28;
+}
+
+.publication-card.featured h3 {
+  font-size: 1.26rem;
+}
+
+.publication-card .pub-year {
+  margin-bottom: 6px;
+}
+
+.publication-card a {
+  font-size: 0.9rem;
+}
+
+/* Hidden entries */
+.pub-extra {
+  display: none;
+}
+
+.pubs-expanded .pub-extra {
+  display: block;
+}
+
+@media (max-width: 760px) {
+  .pub-m-extra {
+    display: none;
+  }
+
+  .pubs-expanded .pub-m-extra {
+    display: block;
+  }
+}
+
+.pub-disclose {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.pub-disclose-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 12px 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 780;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.pub-disclose-btn:hover {
+  border-color: var(--volt);
+}
+
+.pub-disclose-btn::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--volt);
+  border-bottom: 2px solid var(--volt);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.pubs-expanded .pub-disclose-btn::after {
+  transform: rotate(225deg);
+}
+
+@media (max-width: 760px) {
+  .pub-disclose-btn {
+    width: 100%;
+  }
+}
