@@ -108,11 +108,11 @@ sections.forEach((section) => observer.observe(section));
   var sections = Array.prototype.slice.call(document.querySelectorAll("main > section[data-tab]"));
   var header = document.querySelector(".site-header");
   var tabbar = document.querySelector(".mobile-tabs");
-  var VALID = ["about", "research", "publications", "contact"];
+  var VALID = ["about", "research", "publications"];
   var SECTION_TAB = {
     about: "about", career: "about", news: "about", media: "about",
     work: "research", research: "research", projects: "research",
-    publications: "publications", contact: "contact"
+    publications: "publications"
   };
 
   function isMobile() {
@@ -155,7 +155,12 @@ sections.forEach((section) => observer.observe(section));
     });
   });
 
-  window.addEventListener("hashchange", function () { activate(tabFromHash(), true); });
+  window.addEventListener("hashchange", function () {
+    var h = (location.hash || "").replace("#", "");
+    var t = SECTION_TAB[h];
+    if (t) activate(t, true); // section that lives in a tab -> switch tab
+    // otherwise (e.g. #contact, always-visible footer) let it scroll natively
+  });
   setHeaderVar();
   window.addEventListener("resize", setHeaderVar);
   activate(location.hash ? tabFromHash() : "about", false);
