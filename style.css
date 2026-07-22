@@ -180,7 +180,9 @@ a {
   grid-template-columns: minmax(330px, 0.68fr) minmax(0, 1.18fr);
   gap: clamp(30px, 5vw, 72px);
   align-items: center;
-  min-height: min(760px, calc(100vh - 82px));
+  min-height: min(660px, calc(100vh - 82px));
+  max-width: 1500px;
+  margin-inline: auto;
   padding: clamp(42px, 7vw, 88px) clamp(20px, 5vw, 72px) clamp(36px, 6vw, 74px);
   background:
     radial-gradient(circle at 10% 8%, rgba(255, 255, 255, 0.82), transparent 18%),
@@ -368,8 +370,8 @@ h3 {
 }
 
 .metrics div {
-  min-height: 124px;
-  padding: 18px;
+  min-height: 90px;
+  padding: 14px 16px;
   background: rgba(255, 255, 255, 0.78);
 }
 
@@ -398,7 +400,7 @@ h3 {
 .profile-panel {
   display: grid;
   gap: 22px;
-  width: min(100%, 510px);
+  width: min(100%, 430px);
   justify-self: center;
   margin: 0;
   padding: 16px;
@@ -2152,4 +2154,17 @@ summary:focus-visible {
   .pub-disclose-btn {
     width: 100%;
   }
+}
+
+/* ============================================================
+   Centered content width on large monitors
+   ============================================================ */
+.section > * {
+  max-width: 1320px;
+  margin-inline: auto;
+}
+
+.site-footer {
+  max-width: 1320px;
+  margin-inline: auto;
 }
