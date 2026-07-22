@@ -871,21 +871,29 @@ p {
   align-items: start;
 }
 
-/* Brand panel stays white in both themes — the mark is drawn for light */
+/* The mark is transparent, so it sits straight on the page background.
+   Two files: black artwork for light, white artwork for dark. */
 .platform-mark {
-  display: grid;
-  aspect-ratio: 1 / 1;
-  place-items: center;
-  padding: clamp(28px, 3vw, 44px);
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  background: #ffffff;
+  padding-top: 4px;
 }
 
 .platform-mark img {
+  display: block;
   width: 100%;
   height: auto;
-  max-width: 200px;
+  max-width: 240px;
+}
+
+.platform-mark .mark-dark {
+  display: none;
+}
+
+[data-theme="dark"] .platform-mark .mark-light {
+  display: none;
+}
+
+[data-theme="dark"] .platform-mark .mark-dark {
+  display: block;
 }
 
 .platform-body h3 {
@@ -1272,8 +1280,8 @@ summary:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .platform-mark {
-    max-width: 260px;
+  .platform-mark img {
+    max-width: 200px;
   }
 
   .editorial-grid {
@@ -1602,6 +1610,10 @@ summary:focus-visible {
   border-top: 1px solid var(--line);
 }
 
-[data-theme="dark"] img:not(.platform-mark img) {
+[data-theme="dark"] img {
   filter: brightness(0.94);
+}
+
+[data-theme="dark"] .platform-mark img {
+  filter: none;
 }
