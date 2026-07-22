@@ -108,10 +108,11 @@ sections.forEach((section) => observer.observe(section));
   var sections = Array.prototype.slice.call(document.querySelectorAll("main > section[data-tab]"));
   var header = document.querySelector(".site-header");
   var tabbar = document.querySelector(".mobile-tabs");
-  var VALID = ["work", "research", "publications", "about", "contact"];
+  var VALID = ["about", "research", "publications", "contact"];
   var SECTION_TAB = {
-    work: "work", projects: "work", research: "research", publications: "publications",
-    about: "about", news: "about", media: "about", career: "about", contact: "contact"
+    about: "about", career: "about", news: "about", media: "about",
+    work: "research", research: "research", projects: "research",
+    publications: "publications", contact: "contact"
   };
 
   function isMobile() {
@@ -123,7 +124,7 @@ sections.forEach((section) => observer.observe(section));
   }
 
   function activate(tab, scroll) {
-    if (VALID.indexOf(tab) < 0) tab = "work";
+    if (VALID.indexOf(tab) < 0) tab = "about";
     sections.forEach(function (s) {
       var hide = s.dataset.tab !== tab;
       s.classList.toggle("tab-hidden", hide);
@@ -142,7 +143,7 @@ sections.forEach((section) => observer.observe(section));
 
   function tabFromHash() {
     var h = (location.hash || "").replace("#", "");
-    return SECTION_TAB[h] || "work";
+    return SECTION_TAB[h] || "about";
   }
 
   tabs.forEach(function (t) {
@@ -157,5 +158,5 @@ sections.forEach((section) => observer.observe(section));
   window.addEventListener("hashchange", function () { activate(tabFromHash(), true); });
   setHeaderVar();
   window.addEventListener("resize", setHeaderVar);
-  activate(location.hash ? tabFromHash() : "work", false);
+  activate(location.hash ? tabFromHash() : "about", false);
 })();
