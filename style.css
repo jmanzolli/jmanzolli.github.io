@@ -1863,7 +1863,8 @@ summary:focus-visible {
 [data-theme="dark"] .site-nav a:hover,
 [data-theme="dark"] .site-nav a.active,
 [data-theme="dark"] .topic-icon,
-[data-theme="dark"] .profile-socials .social-icon {
+[data-theme="dark"] .profile-socials .social-icon,
+[data-theme="dark"] .hero-socials .social-icon {
   color: var(--ink);
 }
 
