@@ -297,6 +297,10 @@ h3 {
   text-underline-offset: 4px;
 }
 
+.hero-socials {
+  display: none;
+}
+
 .hero-copy {
   position: relative;
   z-index: 0;
@@ -789,6 +793,23 @@ h3 {
   color: var(--deep);
 }
 
+.contact-email-box {
+  display: grid;
+  gap: 10px;
+}
+
+.contact-email-box .contact-label {
+  color: var(--accent-2);
+}
+
+.contact-email {
+  color: var(--white);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 4px;
+}
+
 address {
   display: grid;
   gap: 8px;
@@ -880,7 +901,7 @@ address {
 
 .site-footer {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr auto;
   align-items: center;
   gap: 16px;
   padding: 18px clamp(20px, 5vw, 72px);
@@ -1098,41 +1119,51 @@ address {
     white-space: normal;
   }
 
-  .eyebrow {
+  .hero-copy .eyebrow {
     order: 3;
-    margin: 0 0 16px;
+    margin: 0 0 14px;
+  }
+
+  .eyebrow {
     font-size: 0.66rem;
   }
 
-  .hero-statement {
+  .hero-socials {
     order: 4;
-    margin: 0 0 10px;
+    display: flex;
+    gap: 12px;
+    margin: 0 0 4px;
+  }
+
+  .hero-statement {
+    order: 5;
+    margin: 16px 0 10px;
     font-size: clamp(1.15rem, 5.5vw, 1.42rem);
   }
 
   .hero-text {
-    order: 5;
+    order: 6;
     margin-top: 0;
   }
 
   .hero-actions {
-    order: 6;
+    order: 7;
     flex-direction: column;
     width: 100%;
     margin-top: 8px;
   }
 
   .hero-collab {
-    order: 7;
+    order: 8;
   }
 
   .metrics {
-    order: 8;
+    order: 9;
     width: 100%;
   }
 
   .metrics-note {
-    order: 9;
+    order: 10;
     width: 100%;
   }
 
