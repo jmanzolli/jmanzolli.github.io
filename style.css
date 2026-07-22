@@ -735,8 +735,7 @@ h3 {
   grid-template-columns: minmax(0, 1fr) minmax(330px, 0.62fr);
   gap: clamp(28px, 5vw, 68px);
   align-items: start;
-  padding-bottom: clamp(28px, 4vw, 42px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  padding-bottom: 0;
 }
 
 .contact-copy {
@@ -2167,4 +2166,170 @@ summary:focus-visible {
 .site-footer {
   max-width: 1320px;
   margin-inline: auto;
+}
+
+/* ============================================================
+   Credibility strip
+   ============================================================ */
+.cred-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px clamp(18px, 3vw, 40px);
+  max-width: 1320px;
+  margin-inline: auto;
+  padding: 26px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--line);
+}
+
+.cred-strip span {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Case-study hierarchy: 1 featured + 2 supporting
+   ============================================================ */
+@media (min-width: 761px) {
+  .case-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-card:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .case-card:not(:first-child) {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  /* drop the alternating media/body swap */
+  .case-card:nth-child(even) .case-media,
+  .case-card:nth-child(even) .case-body {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .case-card:not(:first-child) .case-media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .case-card:not(:first-child) .case-body h3 {
+    font-size: 1.24rem;
+  }
+}
+
+/* ============================================================
+   Merged About + career, News + media
+   ============================================================ */
+.about-career,
+.news-media {
+  margin-top: 42px;
+}
+
+.about-subhead {
+  margin: 0;
+  font-size: 1.28rem;
+}
+
+/* ============================================================
+   Recognition list
+   ============================================================ */
+.recognition-list {
+  display: grid;
+  gap: 0;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.recognition-list li {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 18px;
+  padding: 14px 2px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.rec-year {
+  color: var(--gold);
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .recognition-list li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+/* ============================================================
+   Integrated footer
+   ============================================================ */
+.footer-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-top: 34px;
+  margin-top: 34px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-col {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.footer-col a {
+  color: #c5c9c8;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.footer-col a:hover {
+  color: var(--white);
+  text-decoration: underline;
+  text-decoration-color: var(--volt);
+  text-underline-offset: 4px;
+}
+
+.footer-identity strong {
+  color: var(--white);
+  font-size: 1.02rem;
+}
+
+.footer-identity p {
+  margin: 0;
+  color: #c5c9c8;
+  font-size: 0.92rem;
+}
+
+/* legal row reads as part of the dark footer */
+.site-footer {
+  grid-template-columns: 1fr auto auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: #111313;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 760px) {
+  .footer-cols {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
 }
