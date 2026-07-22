@@ -100,3 +100,62 @@ const observer = new IntersectionObserver(
 );
 
 sections.forEach((section) => observer.observe(section));
+
+// Mobile section tabs: show one section group at a time (phones only)
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".mtab"));
+  if (!tabs.length) return;
+  var sections = Array.prototype.slice.call(document.querySelectorAll("main > section[data-tab]"));
+  var header = document.querySelector(".site-header");
+  var tabbar = document.querySelector(".mobile-tabs");
+  var VALID = ["work", "research", "publications", "about", "contact"];
+  var SECTION_TAB = {
+    work: "work", projects: "work", research: "research", publications: "publications",
+    about: "about", news: "about", media: "about", career: "about", contact: "contact"
+  };
+
+  function isMobile() {
+    return window.matchMedia("(max-width: 760px)").matches;
+  }
+
+  function setHeaderVar() {
+    document.documentElement.style.setProperty("--header-h", (header ? header.offsetHeight : 58) + "px");
+  }
+
+  function activate(tab, scroll) {
+    if (VALID.indexOf(tab) < 0) tab = "work";
+    sections.forEach(function (s) {
+      var hide = s.dataset.tab !== tab;
+      s.classList.toggle("tab-hidden", hide);
+      if (!hide) {
+        // reveal scroll-fade elements that were hidden
+        if (s.classList.contains("reveal")) s.classList.add("in-view");
+        s.querySelectorAll(".reveal").forEach(function (c) { c.classList.add("in-view"); });
+      }
+    });
+    tabs.forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.tab === tab)); });
+    if (scroll && isMobile() && tabbar) {
+      var y = tabbar.getBoundingClientRect().top + window.scrollY - (header ? header.offsetHeight : 0);
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  }
+
+  function tabFromHash() {
+    var h = (location.hash || "").replace("#", "");
+    return SECTION_TAB[h] || "work";
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function (e) {
+      e.preventDefault();
+      var tab = t.dataset.tab;
+      if (history.replaceState) history.replaceState(null, "", "#" + tab);
+      activate(tab, true);
+    });
+  });
+
+  window.addEventListener("hashchange", function () { activate(tabFromHash(), true); });
+  setHeaderVar();
+  window.addEventListener("resize", setHeaderVar);
+  activate(location.hash ? tabFromHash() : "work", false);
+})();

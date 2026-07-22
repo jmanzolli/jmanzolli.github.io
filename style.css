@@ -1994,3 +1994,65 @@ summary:focus-visible {
     gap: 7px;
   }
 }
+
+/* ============================================================
+   Mobile section tabs (phones only)
+   ============================================================ */
+.mobile-tabs {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .mobile-tabs {
+    display: flex;
+    gap: 8px;
+    position: sticky;
+    top: var(--header-h, 58px);
+    z-index: 15;
+    margin: 0;
+    padding: 10px 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: rgba(247, 247, 245, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .mobile-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mtab {
+    flex: 0 0 auto;
+    padding: 9px 15px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--muted);
+    font-weight: 780;
+    font-size: 0.9rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .mtab[aria-selected="true"] {
+    background: var(--deep);
+    border-color: var(--deep);
+    color: var(--white);
+  }
+
+  main > section[data-tab].tab-hidden {
+    display: none;
+  }
+}
+
+[data-theme="dark"] .mobile-tabs {
+  background: rgba(15, 15, 16, 0.95);
+}
+
+[data-theme="dark"] .mtab[aria-selected="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #101010;
+}
