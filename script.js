@@ -39,31 +39,25 @@ if (themeToggle) {
   });
 }
 
-// Mobile "show more" toggles (progressive disclosure)
-document.querySelectorAll(".m-disclose-btn").forEach((btn) => {
+// Disclosure: publications and news each expand their own section
+document.querySelectorAll(".disclose-btn").forEach((btn) => {
+  const section = btn.closest("section");
+  if (!section) return;
   btn.addEventListener("click", () => {
-    const section = btn.closest("section");
-    if (!section) return;
-    const expanded = section.classList.toggle("m-expanded");
+    const expanded = section.classList.toggle("is-expanded");
     btn.setAttribute("aria-expanded", String(expanded));
     btn.textContent = expanded ? btn.dataset.less : btn.dataset.more;
-    // Newly shown items may carry the scroll-reveal class; make sure they're visible
     if (expanded) {
-      section.querySelectorAll(".m-extra").forEach((el) => {
-        el.classList.add("in-view");
-        el.querySelectorAll(".reveal").forEach((c) => c.classList.add("in-view"));
-      });
+      section.querySelectorAll(".reveal").forEach((el) => el.classList.add("in-view"));
     }
   });
 });
 
-// Scroll-reveal: fade sections and cards in as they enter the viewport
+// Scroll reveal — section headers, case studies, and the platform feature only
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 if (!prefersReducedMotion && "IntersectionObserver" in window) {
   const revealTargets = document.querySelectorAll(
-    ".section-heading, .split-heading, .focus-grid article, .publication-card, " +
-      ".project-grid article, .media-grid article, .recognition-grid article, " +
-      ".timeline article, .news-item, .metrics, .contact-panel, .case-card"
+    ".section-header, .case-study, .platform-feature"
   );
 
   const revealObserver = new IntersectionObserver(
@@ -84,6 +78,7 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
   });
 }
 
+// Scrollspy
 const observer = new IntersectionObserver(
   (entries) => {
     const visible = entries
@@ -105,12 +100,12 @@ sections.forEach((section) => observer.observe(section));
 (function () {
   var tabs = Array.prototype.slice.call(document.querySelectorAll(".mtab"));
   if (!tabs.length) return;
-  var sections = Array.prototype.slice.call(document.querySelectorAll("main > section[data-tab]"));
+  var tabSections = Array.prototype.slice.call(document.querySelectorAll("main > section[data-tab]"));
   var header = document.querySelector(".site-header");
   var tabbar = document.querySelector(".mobile-tabs");
   var VALID = ["about", "research", "publications"];
   var SECTION_TAB = {
-    about: "about", career: "about", news: "about", media: "about",
+    about: "about", news: "about",
     work: "research", research: "research", projects: "research",
     publications: "publications"
   };
@@ -125,11 +120,10 @@ sections.forEach((section) => observer.observe(section));
 
   function activate(tab, scroll) {
     if (VALID.indexOf(tab) < 0) tab = "about";
-    sections.forEach(function (s) {
+    tabSections.forEach(function (s) {
       var hide = s.dataset.tab !== tab;
       s.classList.toggle("tab-hidden", hide);
       if (!hide) {
-        // reveal scroll-fade elements that were hidden
         if (s.classList.contains("reveal")) s.classList.add("in-view");
         s.querySelectorAll(".reveal").forEach(function (c) { c.classList.add("in-view"); });
       }
@@ -158,25 +152,10 @@ sections.forEach((section) => observer.observe(section));
   window.addEventListener("hashchange", function () {
     var h = (location.hash || "").replace("#", "");
     var t = SECTION_TAB[h];
-    if (t) activate(t, true); // section that lives in a tab -> switch tab
-    // otherwise (e.g. #contact, always-visible footer) let it scroll natively
+    if (t) activate(t, true);
   });
+
   setHeaderVar();
   window.addEventListener("resize", setHeaderVar);
   activate(location.hash ? tabFromHash() : "about", false);
-})();
-
-// Publications: "See all publications" toggle
-(function () {
-  var btn = document.querySelector(".pub-disclose-btn");
-  if (!btn) return;
-  var section = btn.closest("section");
-  btn.addEventListener("click", function () {
-    var expanded = section.classList.toggle("pubs-expanded");
-    btn.setAttribute("aria-expanded", String(expanded));
-    btn.textContent = expanded ? btn.dataset.less : btn.dataset.more;
-    if (expanded) {
-      section.querySelectorAll(".reveal").forEach(function (c) { c.classList.add("in-view"); });
-    }
-  });
 })();
