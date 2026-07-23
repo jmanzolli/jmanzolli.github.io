@@ -39,9 +39,10 @@ if (themeToggle) {
   });
 }
 
-// Disclosure: publications and news each expand their own section
+// Disclosure. A button expands its nearest .disclose-group when there is one
+// (two independent lists sit inside the About section), otherwise the section.
 document.querySelectorAll(".disclose-btn").forEach((btn) => {
-  const section = btn.closest("section");
+  const section = btn.closest(".disclose-group") || btn.closest("section");
   if (!section) return;
   btn.addEventListener("click", () => {
     const expanded = section.classList.toggle("is-expanded");

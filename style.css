@@ -1118,9 +1118,38 @@ p {
   font-size: 0.9375rem;
 }
 
-/* Funding rows carry a trailing amount column */
-.funding-list li {
-  grid-template-columns: 138px minmax(0, 1fr) auto;
+/* Awards and funding sit side by side below the bio, each collapsed to its
+   first three rows. */
+.recognition-band {
+  margin-top: clamp(8px, 1vw, 16px);
+}
+
+.recognition-band .subhead {
+  margin-top: clamp(40px, 4vw, 56px);
+}
+
+/* Qualified with li so it outranks `.recognition-list li { display: grid }` */
+.recognition-list li.rec-extra {
+  display: none;
+}
+
+.is-expanded .recognition-list li.rec-extra {
+  display: grid;
+}
+
+.disclose-group .list-footer {
+  margin-top: var(--s-3);
+}
+
+.recognition-band .recognition-list li {
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: var(--s-2);
+}
+
+/* Funding rows carry a trailing amount column — declared after the band rule
+   above so it wins on equal specificity. */
+.recognition-band .funding-list li {
+  grid-template-columns: 110px minmax(0, 1fr) auto;
 }
 
 .rec-amount {
@@ -1462,8 +1491,19 @@ summary:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  /* Match the specificity of the two-up band rules so the rows stack */
+  .recognition-band .recognition-list li,
+  .recognition-band .funding-list li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
   .funding-list li {
     gap: 4px;
+  }
+
+  .recognition-band .subhead {
+    margin-top: var(--s-5);
   }
 
   .publication-row,
