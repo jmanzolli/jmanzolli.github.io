@@ -1118,6 +1118,28 @@ p {
   font-size: 0.9375rem;
 }
 
+/* Funding rows carry a trailing amount column */
+.funding-list li {
+  grid-template-columns: 138px minmax(0, 1fr) auto;
+}
+
+.rec-amount {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: var(--fs-meta);
+  white-space: nowrap;
+}
+
+.funding-total {
+  border-bottom: 0;
+  font-weight: 600;
+}
+
+.funding-total .rec-amount {
+  color: var(--teal);
+  font-weight: 700;
+}
+
 /* ------------------------------------------------------------
    Footer
    ------------------------------------------------------------ */
@@ -1435,8 +1457,13 @@ summary:focus-visible {
   .tool-list li,
   .timeline li,
   .recognition-list li,
+  .funding-list li,
   .footer-legal {
     grid-template-columns: 1fr;
+  }
+
+  .funding-list li {
+    gap: 4px;
   }
 
   .publication-row,
